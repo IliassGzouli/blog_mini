@@ -4,7 +4,11 @@
 
 @section('content')
   <h2 class="mb-3">Articles</h2>
-
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+  @endif
   <a href="{{ route('articles.create') }}" class="btn btn-primary mb-3">Nouvel Article</a>
 
   @if($articles->count())
@@ -17,7 +21,7 @@
           </div>
           <div class="ms-3 d-flex gap-2">
             <a href="{{ route('articles.edit', $article) }}" class="btn btn-sm btn-outline-primary">Modifier</a>
-            <form action="{{ route('articles.destroy', $article) }}" method="POST" onsubmit="return confirm('Supprimer cet article ?');">
+            <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline-block;">
               @csrf
               @method('DELETE')
               <button class="btn btn-sm btn-outline-danger">Supprimer</button>
@@ -31,4 +35,5 @@
   @else
     <div class="alert alert-info">Aucun article pour le moment.</div>
   @endif
+
 @endsection

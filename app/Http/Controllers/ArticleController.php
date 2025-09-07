@@ -12,7 +12,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-    $articles = \App\Models\Article::latest()->paginate(5);
+    $articles = Article::paginate(5);
     return view('articles.index', compact('articles'));
     }
 
@@ -21,7 +21,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -29,7 +29,17 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:3',
+            'content'=>'required|min:10',
+        ]);
+
+         Article::create([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('articles.index')->with('succes', 'Article crée avec succés');
     }
 
     /**
@@ -43,24 +53,36 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:3',
+            'content'=>'required|min:10',
+        ]);
+        $article = Article::findOrfail($id);
+        $article->update($request->all());
+
+        return redirect()->route('articles.index')->with('succes', 'Article mise a jour avec succés');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article = Article::findOrFail($id);
+        $article->delete();
+
+        return redirect()->route('articles.index')->with('succes', 'Article supprimé avec succés');
     }
+
 }
