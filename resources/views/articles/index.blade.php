@@ -10,6 +10,13 @@
     </div>
   @endif
   <a href="{{ route('articles.create') }}" class="btn btn-primary mb-3">Nouvel Article</a>
+  
+<form method="GET" action="{{ route('articles.index') }}" class="mb-3 d-flex">
+    <input type="text" name="search" class="form-control me-2"
+           placeholder="Rechercher un article..."
+           value="{{ request('search') }}">
+    <button type="submit" class="btn btn-outline-primary">Rechercher</button>
+</form>
 
   @if($articles->count())
     <ul class="list-group mb-3">
@@ -31,7 +38,9 @@
       @endforeach
     </ul>
 
-    {{ $articles->links() }}
+    <div class="mt-3">
+            {{ $articles->links() }}
+        </div>
   @else
     <div class="alert alert-info">Aucun article pour le moment.</div>
   @endif

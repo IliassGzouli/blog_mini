@@ -10,11 +10,19 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-    $articles = Article::paginate(5);
-    return view('articles.index', compact('articles'));
-    }
+
+    public function index(Request $request){
+        $search = $request->input('search');
+
+    $articles = Article::when($search, function($query, $search) {
+        return $query->where('title', 'like', "%{$search}%");
+    })->latest()->paginate(5);
+
+    return view('articles.index', compact('articles', 'search'));
+}
+    
+
+  
 
     /**
      * Show the form for creating a new resource.
@@ -30,8 +38,8 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|min:3',
-            'content'=>'required|min:10',
+            'title' => 'required|string|max:255',
+            'content'=>'required|string|min:10',
         ]);
 
          Article::create([
@@ -65,8 +73,8 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|min:3',
-            'content'=>'required|min:10',
+            'title' => 'required|string|max:255',
+            'content'=>'required|string|min:10',
         ]);
         $article = Article::findOrfail($id);
         $article->update($request->all());
