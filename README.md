@@ -1,9 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Mini Blog Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Un projet Laravel simple qui permet de gérer des articles avec un CRUD complet (Create, Read, Update, Delete).  
+Ce projet est destiné à l’apprentissage des bases de Laravel : routes, contrôleurs, modèles, migrations, Blade, validation et pagination.
 
+## Fonctionnalités
+
+- Création d’un article (titre et contenu)
+- Affichage de la liste des articles avec pagination
+- Recherche d’articles par titre ou contenu
+- Modification d’un article
+- Suppression d’un article
+- Affichage des détails d’un article
+- Messages de confirmation après chaque action (succès / info)
+
+## Structure du projet
+
+- `app/Models/Article.php` : modèle Eloquent représentant un article
+- `app/Http/Controllers/ArticleController.php` : logique du CRUD
+- `resources/views/layouts/app.blade.php` : layout principal
+- `resources/views/articles/index.blade.php` : liste des articles + recherche
+- `resources/views/articles/create.blade.php` : formulaire de création
+- `resources/views/articles/edit.blade.php` : formulaire de modification
+- `resources/views/articles/show.blade.php` : affichage détaillé
+- `database/migrations/..._create_articles_table.php` : migration pour la table `articles`
+- `routes/web.php` : définition des routes
+
+## Installation
+
+1. Cloner le projet :
+   ```bash
+   git clone https://github.com/votre-nom/mini-blog-laravel.git
+   cd mini-blog-laravel
+2. Installer les dépendances :
+    composer install
+    npm install && npm run dev
+
+3. Générer la clé de l’application :
+    php artisan key:generate
+
+4. Lancer les migrations :
+    php artisan migrate
+5. Démarrer le serveur :
+    php artisan serve
+
+
+Routes principales :
+
+/ : liste des articles
+/articles : liste des articles
+/articles/create : formulaire de création
+/articles/{id} : afficher un article
+/articles/{id}/edit : modifier un article
+(DELETE) /articles/{id} : supprimer un article
+
+
+Technologies utilisées :
+
+Laravel 11
+MySQL
+Bootstrap 5
+Blade
+
+
+
+
+
+**Page d’accueil / liste des articles**
+public/screenshots/page_index.png
+**Création d’un article**
+public/screenshots/creation_article.png
+**Modification d’un article**
+public/screenshots/modification_article.png
+**Détails d’un article**
+public/screenshots/detail_article.png
+
+
+
+Auteur
+Auteur : Iliass Gzouli
