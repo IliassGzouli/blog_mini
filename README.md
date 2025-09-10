@@ -44,7 +44,7 @@ Ce projet est destiné à l’apprentissage des bases de Laravel : routes, contr
     php artisan serve
 
 
-Routes principales :
+**Routes principales :**
 
 / : liste des articles
 /articles : liste des articles
@@ -54,7 +54,7 @@ Routes principales :
 (DELETE) /articles/{id} : supprimer un article
 
 
-Technologies utilisées :
+**Technologies utilisées :**
 
 Laravel 11
 MySQL
@@ -66,15 +66,15 @@ Blade
 
 
 **Page d’accueil / liste des articles**
-public/screenshots/page_index.png
+(public/screenshots/page_index.png)
 **Création d’un article**
-public/screenshots/creation_article.png
+(public/screenshots/creation_article.png)
 **Modification d’un article**
-public/screenshots/modification_article.png
+(public/screenshots/modification_article.png)
 **Détails d’un article**
-public/screenshots/detail_article.png
+(public/screenshots/detail_article.png)
 
 
 
-Auteur
+**Auteur**
 Auteur : Iliass Gzouli
