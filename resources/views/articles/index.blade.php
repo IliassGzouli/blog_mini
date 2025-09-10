@@ -25,6 +25,12 @@
           <div>
             <strong>{{ $article->title }}</strong>
             <div class="text-muted">{{ Str::limit($article->content, 120) }}</div>
+
+            {{-- Lien Afficher les détails --}}
+            <a href="{{ route('articles.show', $article) }}" 
+               class="text-decoration-underline text-primary">
+               Afficher les détails
+            </a>
           </div>
           <div class="ms-3 d-flex gap-2">
             <a href="{{ route('articles.edit', $article) }}" class="btn btn-sm btn-outline-primary">Modifier</a>
@@ -39,10 +45,9 @@
     </ul>
 
     <div class="mt-3">
-            {{ $articles->links() }}
-        </div>
+        {{ $articles->links() }}
+    </div>
   @else
     <div class="alert alert-info">Aucun article pour le moment.</div>
   @endif
-
 @endsection

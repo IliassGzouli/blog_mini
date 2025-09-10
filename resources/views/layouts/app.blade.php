@@ -15,9 +15,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
   <div class="container">
     <a class="navbar-brand" href="{{ route('articles.index') }}">Mini Blog</a>
-    <div class="d-flex gap-2">
-      <a href="{{ route('articles.create') }}" class="btn btn-primary">Nouvel Article</a>
-    </div>
   </div>
 </nav>
 <div class="container">
