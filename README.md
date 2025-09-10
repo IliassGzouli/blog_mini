@@ -65,14 +65,19 @@ Blade
 
 
 
-**Page d’accueil / liste des articles**
-(public/screenshots/page_index.png)
-**Création d’un article**
-(public/screenshots/creation_article.png)
-**Modification d’un article**
-(public/screenshots/modification_article.png)
-**Détails d’un article**
-(public/screenshots/detail_article.png)
+##Aperçu
+
+**Page d’accueil / liste des articles**  
+![Page d’accueil / liste des articles](public/screenshots/page_index.png)
+
+**Création d’un article**  
+![Création d’un article](public/screenshots/creation_article.png)
+
+**Modification d’un article**  
+![Modification d’un article](public/screenshots/modification_article.png)
+
+**Détails d’un article**  
+![Détails d’un article](public/screenshots/detail_article.png)
 
 
 
